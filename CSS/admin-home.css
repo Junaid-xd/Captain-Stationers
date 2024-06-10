@@ -3,7 +3,7 @@ body{
   margin: 0;
   background-color: #e6d8d8;
 }
-.flex-box{
+.admin-flex-box{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-row-gap: 20px;
@@ -55,7 +55,7 @@ body{
 
 
 @media (max-width : 980px) {
-  .flex-box{
+  .admin-flex-box{
     margin-top: 3vmax;
     grid-template-columns: 1fr 1fr;
   }
