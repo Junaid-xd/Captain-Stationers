@@ -1,23 +1,30 @@
+body{
+  padding: 0;
+  margin: 0;
+  background-color: #e6d8d8;
+}
 .flex-box{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-row-gap: 20px;
   padding: 5px;
   place-items: center;
+  margin-top: 1vmax;
+  
 }
 
-.a{
+/* .a{
   display: flex;
   align-items: center;
   justify-content: center;
-}
+} */
 
 .boundary{
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #e6d8d8;
+  background-color: #d8c0c0;
   padding: 10px;
   border-radius: 1000px;
   overflow: hidden;
@@ -26,18 +33,18 @@
   display: inline-block;
   width: 30vmax;
 }
-.name-sec{
+.admin-name-sec{
   padding: 5px;
   margin-bottom: 1vmax;
   font-size: 6vmax;
 }
-.btn-sec{
+.admin-btn-sec{
   padding: 5px;
   display: flex;
   justify-content: space-between;
   width: 70%;
 }
-.btn-sec button{
+.admin-btn-sec button{
   padding: 10px;
   background-color: #ff6f61;
   border: none;
@@ -49,23 +56,29 @@
 
 @media (max-width : 980px) {
   .flex-box{
-    grid-template-columns: 1fr;
+    margin-top: 3vmax;
+    grid-template-columns: 1fr 1fr;
   }
-  .name-sec{
+  .admin-name-sec{
     padding: 5px;
     margin-bottom: 1vmax;
-    font-size: 5vmax;
+    font-size: 4vmax;
   }
   .group-wrapper{
     display: inline-block;
-    width: 40vmax;
+    width: 20vmax;
   }
-  .btn-sec button{
-    padding: 10px;
+  .admin-btn-sec{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+  }
+  .admin-btn-sec button{
+    padding: 8px;
     background-color: #ff6f61;
     border: none;
     color: #fff;
     border-radius: 10px;
-    font-size: 1.5vmax;
+    font-size: 1.3vmax;
   }
 }
