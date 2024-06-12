@@ -16,6 +16,7 @@
   <div class="nav-bar">
     <div class="nav-name-sec">CAPTAIN STATIONERS</div>
     <div class="nav-btn-sec">
+      <button class="default-data-btn" style="margin-right: 10vmax; font-size: 8px; padding: 2px;">Use Default Data</button>
       <button class="new-group-btn">+ Create new group</button>
       <button class="log-out-btn">Log-Out</button>
     </div>
@@ -120,6 +121,84 @@
 
   </div>
 
+
+  <div id="admin-home-popup" class="hide-admin-popup"> 
+
+    <div class="admin-home-popup-name-div">
+      <p class="admin-home-popup-name-para"></p>
+      <div class="add-bookCopy-btns-div">
+        <button class="admin-home-popup-addbook-btn">+ ADD NEW BOOK</button>
+      </div>
+    </div>
+
+    <div class="admin-home-popup-table-div">
+      <table class="admin-home-table">
+        <thead class="admin-popup-table-head">
+          
+        </thead>
+        
+        <tbody class="admin-popup-table-body">
+          
+        </tbody>
+      </table>
+    </div>
+    
+
+
+    <div class="admin-home-popup-btn-div">
+      <button class="admin-popup-close-btn">Close</button>
+      <button class="admin-popup-save-btn">Save Changes</button>
+    </div>
+    
+  </div>
+
+
+  <div id="admin-home-delete-popup" class="hide-admin-delete-popup"> 
+   
+   <div class="admin-delete-popup-content"></div>
+   <div class="admin-home-delete-btn-div">
+    <button class="admin-delete-popup-delete-btn">DELETE</button>
+    <button class="admin-delete-popup-cancel-btn">CANCEL</button>
+   </div>
+   
+  </div>
+  
+
+  <div id="admin-home-addBook-popup" class="hide-admin-addBook-popup">
+    <div class="newBookForm-div">
+      <div class="newBook-form-name-div">
+        <p>Book Name</p>
+        <input type="text" placeholder="enter book name" class="newBook-name-input">
+      </div>
+
+      <div class="newBook-form-pub-div">
+        <p>Publisher</p>
+        <input type="text" placeholder="enter publisher name" class="newBook-publisher-input">
+      </div>
+
+      <div class="newBook-form-quantity-div">
+        <p>Quantity</p>
+        <input type="text" placeholder="enter quantity" class="newBook-quantity-input">
+      </div>
+
+      <div class="newBook-form-price-div">
+        <p>Price</p>
+        <input type="text" placeholder="enter book price" class="newBook-price-input">
+      </div>
+    </div>
+
+    <div class="err-div">
+      <p class="error-msg"></p>
+    </div>
+
+    <div class="admin-home-addBook-btn-div">
+      <button class="admin-addBook-popup-cancel-btn">Cancel</button>
+      <button class="admin-home-addBook-btn">Add Book</button>
+    </div>
+
+    
+  </div>
+  
 
   <script type="module" src="../JS/admin-home.js"></script>
 </body>
