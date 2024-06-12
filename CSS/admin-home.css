@@ -46,6 +46,7 @@ body{
   color: #fff;
   border-radius: 10px;
   font-size: 1.25vmax;
+  cursor: pointer;
 }
 
 .admin-home-remove-btn{
