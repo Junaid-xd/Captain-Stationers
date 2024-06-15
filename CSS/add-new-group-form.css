@@ -1,0 +1,86 @@
+.form-newBook-details-div{
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 5px;
+
+}
+
+.input-newBook-divs{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 1vmax;
+  margin-bottom: 2vmax;
+}
+.input-newBook-divs p{
+  padding: 0;
+  margin: 0;
+  margin-bottom: 1vmax;
+  font-size: 1.7vmax;
+}
+.newBook-form-quantity-input,
+.newBook-form-price-input{
+  width: 12vmax;
+
+}
+
+.newBook-details-form-name-div,
+.newBook-details-form-quantity-div{
+  margin-bottom: 2vmax;
+}
+
+.newBook-form-name-div{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.up-newBookForm-div{
+  margin-right: 1vmax;
+}
+
+.form-newBook-tableOfBooks-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#add-newBook-form-div{
+  border: 2px solid red;
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.save-group-button-div{
+  margin-top: 1vmax;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.hide-create-new-group-popup{
+  display: none;
+}
+
+
+
+@media (max-width : 980px){
+  #add-newBook-form-div{
+    border: 2px solid red;
+    display: block;
+    align-items: normal;
+    justify-content: safe;
+    padding: 3px;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

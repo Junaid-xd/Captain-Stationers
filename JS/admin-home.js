@@ -14,6 +14,8 @@ import { returnNameByID } from './group.js';
 import { deleteGroupByID } from './group.js';
 import { updateGroupBooks } from './group.js';
 import { addBookTemporary } from './group.js';
+import { returnNewUniqueGroupID } from './group.js';
+import { addNewGroup } from './group.js';
 
 
 
@@ -38,8 +40,11 @@ function renderGroups(){
     `
   });
 
+
+  makeLogoutButtonInteractive();
   interactiveDeleteandEditButton();
   makePopupHide();
+  openCreateNewGroupPopup()
 }
 
 renderGroups();
@@ -74,8 +79,7 @@ function interactiveDeleteandEditButton()
 
 }
 
-function makePopupHide()
-{
+function makePopupHide(){
   document.querySelector('.admin-popup-close-btn').addEventListener('click', ()=>{
     document.getElementById("admin-home-popup").classList.add("hide-admin-popup");
     location.reload();
@@ -87,6 +91,15 @@ function makePopupHide()
 
   document.querySelector('.admin-addBook-popup-cancel-btn').addEventListener('click', ()=>{
     document.getElementById("admin-home-addBook-popup").classList.add("hide-admin-addBook-popup");
+  });
+
+  document.querySelector('.newBook-close-btn').addEventListener('click',()=>{
+    document.getElementById("add-newBook-form-div").classList.add("hide-create-new-group-popup");
+    document.querySelector('.admin-newGroup-tempBooks-table-head').innerHTML="";
+    document.querySelector('.admin-newGroup-tempBooks-table-body').innerHTML="";
+    document.querySelector('.add-newBook-name-input').value = "";
+    localStorage.removeItem("tempBook");
+    
   });
 }
 
@@ -264,3 +277,194 @@ function makeAddBookButtonInteractive(){
 }
 
 makeAddBookButtonInteractive();
+
+
+
+function makeLogoutButtonInteractive(){
+  document.querySelector('.log-out-btn').addEventListener('click', ()=>{
+    window.location.assign('../index.html');
+  });
+}
+
+
+function openCreateNewGroupPopup(){
+  document.querySelector('.new-group-btn').addEventListener('click', ()=>{
+    document.getElementById("add-newBook-form-div").classList.remove("hide-create-new-group-popup");
+    localStorage.removeItem("tempGroup");
+    makeNewBookSaveButtonInteractive();
+    makeAddNewBookButtonInteractive();
+  });
+}
+
+
+
+function makeAddNewBookButtonInteractive(){
+  document.querySelector('.form-newBook-add-btn').addEventListener('click', ()=>{
+    const tempName = document.querySelector('.add-newBook-name-input').value;
+    if(tempName!=""){
+      document.querySelector('.name-err-msg-div').innerHTML = "";
+      const tempID = returnNewUniqueGroupID();
+
+      let tempGroup = JSON.parse(localStorage.getItem('tempGroup'));
+
+      if(!tempGroup){
+        tempGroup = {
+          groupID:parseInt(tempID),
+          groupName:tempName,
+          books:[]
+        }
+      }
+
+      
+
+      
+
+
+      const tempBookName = document.querySelector('.newBook-form-name-input').value;
+      const tempBookPub = document.querySelector('.newBook-form-publisher-input').value;
+      const tempBookQuantity = document.querySelector('.newBook-form-quantity-input').value;
+      const tempBookPrice = document.querySelector('.newBook-form-price-input').value;
+
+      if(tempBookName!="" && tempBookPub!="" && tempBookQuantity!="" && tempBookPrice!=""){
+
+        document.querySelector('.final-newBook-error-div').innerHTML = "";
+        document.querySelector('.newBook-details-error-div').innerHTML = "";
+
+        let inn = 0 ;
+        let tempBookID = tempGroup.books.length + 1;
+
+        while(1){
+          tempGroup.books.forEach((book)=>{
+            if(book.bookID==tempBookID){
+              inn = 1
+              tempBookID++;
+            }
+          });
+
+          if(inn==1){
+            inn=0;
+            continue;
+          }
+          else{
+            break;
+          }
+          
+        }
+        
+        let newTempBook = {
+          bookID: parseInt(tempBookID),
+          bookName: tempBookName,
+          publication:tempBookPub,
+          quantity:parseInt(tempBookQuantity),
+          price : parseInt(tempBookPrice)
+        }
+
+        
+        tempGroup.books.push(newTempBook);
+
+
+        document.querySelector('.newBook-form-name-input').value = "";
+        document.querySelector('.newBook-form-publisher-input').value = "";
+        document.querySelector('.newBook-form-quantity-input').value = "";
+        document.querySelector('.newBook-form-price-input').value = "";
+
+        localStorage.setItem("tempGroup" , JSON.stringify(tempGroup));
+
+        console.log(tempGroup);
+        
+        showTempDataInTabel(tempGroup);
+
+
+      }
+      else{
+        document.querySelector('.newBook-details-error-div').innerHTML = "Please fill all fields *";
+      }
+
+    }
+    else{
+      document.querySelector('.name-err-msg-div').innerHTML = "Please enter group name *";
+    }
+  });
+}
+
+
+function showTempDataInTabel(tempGroup){
+
+  let tableHead = document.querySelector('.admin-newGroup-tempBooks-table-head');
+  let tableBody = document.querySelector('.admin-newGroup-tempBooks-table-body');
+
+
+  
+  tableHead.innerHTML=`
+    <th>SR#</th>
+    <th>NAME</th>
+    <th>PUB</th>
+    <th>QUANTITY</th>
+    <th>PRICE</th>
+    <th>#</th>
+  `;
+
+  let counter = 1;
+  tableBody.innerHTML="";
+  tempGroup.books.forEach((book)=>{
+    tableBody.innerHTML += `
+    <tr class="admin-popup-table-row">
+      <td>${counter}</td>
+      <td contenteditable="true" class="admin-home-name-col">${book.bookName}</td>
+      <td class="admin-home-popup-table-publisher" contenteditable="true">${book.publication}</td>
+      <td contenteditable="true">${book.quantity}</td>
+      <td contenteditable="true">${book.price}</td>
+      <td><button class="admin-home-newGroup-remove-btn" data-remove-newGroup-bookID="${book.bookID}">Remove</button></td>
+    </tr>
+    `;
+    counter++;
+  });
+    
+  makeNewGroupRemoveButtonInteractive(tempGroup);
+
+}
+
+
+function makeNewGroupRemoveButtonInteractive(tempGroup){
+
+  document.querySelectorAll('.admin-home-newGroup-remove-btn').forEach((button)=>{
+
+    document.querySelectorAll('.admin-home-newGroup-remove-btn').forEach((button) => {
+      button.addEventListener('click', function() {
+        const targetBookID = this.getAttribute("data-remove-newGroup-bookID");
+        tempGroup.books = tempGroup.books.filter(book => book.bookID != targetBookID);
+
+        localStorage.setItem("tempGroup", JSON.stringify(tempGroup));
+        showTempDataInTabel(tempGroup);
+        
+      });
+    });
+
+  });
+  
+}
+
+
+function makeNewBookSaveButtonInteractive(){
+
+  document.querySelector('.newBook-form-save-btn').addEventListener('click', ()=>{
+
+    if(document.querySelector('.add-newBook-name-input').value!=""){
+
+      document.querySelector('.name-err-msg-div').innerHTML="";
+      const newGroup = JSON.parse(localStorage.getItem("tempGroup"));
+      if(!newGroup){
+        document.querySelector('.final-newBook-error-div').innerHTML = "Please add atleast one book";
+      }
+      else{
+
+        addNewGroup(newGroup);
+        location.reload();
+      }
+    }
+    else{
+      document.querySelector('.name-err-msg-div').innerHTML="Please enter group name *";
+    }
+    
+  })
+}

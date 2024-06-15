@@ -1200,11 +1200,38 @@ export function updateGroupBooks(groupID, newBooks ){
 
 
 
+export function returnNewUniqueGroupID(){
+  let inn = 0;
+  let newID = groups.length;
+  while(1)
+  {
+    groups.forEach((group)=>{
+      if(group.groupID==newID){
+        newID++;
+        inn=1;
+      }
+    });
+
+    if(inn==1){
+      inn=0;
+      continue;
+    }
+    else{
+      break;
+    }
+  }
+
+  return newID;
+}
+
+export function addNewGroup(newGroup){
+  groups.push(newGroup);
+  saveGroupsDataToStorage();
+}
 
 function saveGroupsDataToStorage(){
   localStorage.setItem('groupsData', JSON.stringify(groups));
 }
-
 
 export function useDefaultData(){
   groups = [
