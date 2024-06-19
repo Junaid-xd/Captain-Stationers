@@ -139,6 +139,7 @@ function renderPopupTableContent(targetID)
     <th>PUB</th>
     <th>QUANTITY</th>
     <th>PRICE</th>
+    <th>TYPE</th>
     <th>#</th>
   `;
 
@@ -156,6 +157,7 @@ function renderPopupTableContent(targetID)
           <td class="admin-home-popup-table-publisher" contenteditable="true">${book.publication}</td>
           <td contenteditable="true">${book.quantity}</td>
           <td contenteditable="true">${book.price}</td>
+          <td contenteditable="true">${book.type}</td>
           <td><button class="admin-home-remove-btn" data-remove-bookID="${book.bookID}">Remove</button></td>
         </tr>
         `;
@@ -203,7 +205,8 @@ function makeSaveButtonInteractive(){
         bookName: row.cells[1].innerHTML,
         publication: row.cells[2].innerHTML,
         quantity: row.cells[3].innerHTML,
-        price: row.cells[4].innerHTML
+        price: row.cells[4].innerHTML,
+        type: row.cells[5].innerHTML
       };
 
       tempBooks.push(book);
@@ -238,6 +241,7 @@ function makeAddBookButtonInteractive(){
     const idd = localStorage.getItem('key');
     const tempName = document.querySelector('.newBook-name-input').value;
     const tempPub = document.querySelector('.newBook-publisher-input').value;
+    const tempType = document.querySelector('.newBook-type-input').value;
     const tempQuantity = parseInt(document.querySelector('.newBook-quantity-input').value, 10);
     const tempPrice =  parseInt(document.querySelector('.newBook-price-input').value, 10) ;
 
@@ -248,7 +252,7 @@ function makeAddBookButtonInteractive(){
       {
         if(Number.isInteger(tempPrice))
         {
-          addBookTemporary(idd, tempName, tempPub, tempQuantity, tempPrice);
+          addBookTemporary(idd, tempName, tempPub, tempQuantity, tempPrice, tempType);
           document.getElementById("admin-home-addBook-popup").classList.add("hide-admin-addBook-popup");
           renderPopupTableContent(idd);
         }
@@ -300,7 +304,7 @@ function openCreateNewGroupPopup(){
 
 function makeAddNewBookButtonInteractive(){
   document.querySelector('.form-newBook-add-btn').addEventListener('click', ()=>{
-    const tempName = document.querySelector('.add-newBook-name-input').value;
+    const tempName = document.querySelector('.add-newBook-name-input').value.toUpperCase();
     if(tempName!=""){
       document.querySelector('.name-err-msg-div').innerHTML = "";
       const tempID = returnNewUniqueGroupID();
@@ -323,6 +327,7 @@ function makeAddNewBookButtonInteractive(){
       const tempBookName = document.querySelector('.newBook-form-name-input').value;
       const tempBookPub = document.querySelector('.newBook-form-publisher-input').value;
       const tempBookQuantity = document.querySelector('.newBook-form-quantity-input').value;
+      const tempBookType = document.querySelector('.newBook-form-type-input').value;
       const tempBookPrice = document.querySelector('.newBook-form-price-input').value;
 
       if(tempBookName!="" && tempBookPub!="" && tempBookQuantity!="" && tempBookPrice!=""){
@@ -355,6 +360,7 @@ function makeAddNewBookButtonInteractive(){
           bookID: parseInt(tempBookID),
           bookName: tempBookName,
           publication:tempBookPub,
+          type:tempBookType,
           quantity:parseInt(tempBookQuantity),
           price : parseInt(tempBookPrice)
         }
@@ -401,6 +407,7 @@ function showTempDataInTabel(tempGroup){
     <th>PUB</th>
     <th>QUANTITY</th>
     <th>PRICE</th>
+    <th>TYPE</th>
     <th>#</th>
   `;
 
@@ -414,6 +421,7 @@ function showTempDataInTabel(tempGroup){
       <td class="admin-home-popup-table-publisher" contenteditable="true">${book.publication}</td>
       <td contenteditable="true">${book.quantity}</td>
       <td contenteditable="true">${book.price}</td>
+      <td contenteditable="true">${book.type}</td>
       <td><button class="admin-home-newGroup-remove-btn" data-remove-newGroup-bookID="${book.bookID}">Remove</button></td>
     </tr>
     `;

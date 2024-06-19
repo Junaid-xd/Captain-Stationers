@@ -1122,7 +1122,7 @@ export function removeBookTemporary(grpID, targetID)
   });
 }
 
-export function addBookTemporary(grpID, tempName, tempPub, tempQuantity, tempPrice){
+export function addBookTemporary(grpID, tempName, tempPub, tempQuantity, tempPrice, tempType){
 
   let newBook=[];
   groups.forEach((group)=>{
@@ -1155,6 +1155,7 @@ export function addBookTemporary(grpID, tempName, tempPub, tempQuantity, tempPri
         bookID:newID,
         bookName:tempName,
         publication:tempPub,
+        type:tempType,
         quantity:tempQuantity,
         price : tempPrice
       }
@@ -1229,6 +1230,17 @@ export function addNewGroup(newGroup){
   saveGroupsDataToStorage();
 }
 
+export function returnGroupByID(id){
+  let toBeReturned = "";
+  groups.forEach((group)=>{
+    if(group.groupID == id){
+      toBeReturned = group;
+    }
+  })
+
+  return toBeReturned;
+}
+
 function saveGroupsDataToStorage(){
   localStorage.setItem('groupsData', JSON.stringify(groups));
 }
@@ -1243,6 +1255,7 @@ export function useDefaultData(){
           bookID:1,
           bookName:'English Workbook',
           publication:'USS',
+          type:'book',
           quantity:1,
           price : 550
         },
@@ -1250,6 +1263,7 @@ export function useDefaultData(){
           bookID:2,
           bookName:'Mathematics Workbook',
           publication:'USS',
+          type:'book',
           quantity:1,
           price : 550
         },
@@ -1257,6 +1271,7 @@ export function useDefaultData(){
           bookID:3,
           bookName:'Urdu Workbook',
           publication:'USS',
+          type:'book',
           quantity:1,
           price : 550
         },
@@ -1264,6 +1279,7 @@ export function useDefaultData(){
           bookID:4,
           bookName:'Fitzroy Reader (11-15)',
           publication:'JDB',
+          type:'book',
           quantity:1,
           price : 770
         },
@@ -1271,6 +1287,7 @@ export function useDefaultData(){
           bookID:5,
           bookName:'New Countdown (Primer B 3rd Edition)',
           publication:'OUP',
+          type:'book',
           quantity:1,
           price : 840
         },
@@ -1278,6 +1295,7 @@ export function useDefaultData(){
           bookID:6,
           bookName:'Urdu Book (Taray) ',
           publication:'OUP',
+          type:'book',
           quantity:1,
           price : 385
         },
@@ -1285,6 +1303,7 @@ export function useDefaultData(){
           bookID:7,
           bookName:'World Around Me (Kindergarten)',
           publication:'OUP',
+          type:'book',
           quantity:1,
           price : 655
         },
@@ -1292,6 +1311,7 @@ export function useDefaultData(){
           bookID:8,
           bookName:'Little Artist (Step-C) ',
           publication:'ARIES',
+          type:'book',
           quantity:1,
           price : 480
         },
@@ -1299,6 +1319,7 @@ export function useDefaultData(){
           bookID:9,
           bookName:'Pre-School Diary',
           publication:'USS',
+          type:'copy',
           quantity:1,
           price:320
         },
@@ -1306,6 +1327,7 @@ export function useDefaultData(){
           bookID:10,
           bookName:'Sketch-Book',
           publication:'USS',
+          type:'copy',
           quantity:1,
           price:500
         },
@@ -1313,6 +1335,7 @@ export function useDefaultData(){
           bookID:11,
           bookName:'4-Lines English Notebook (04)',
           publication:'USS',
+          type:'copy',
           quantity:4,
           price:140
         },
@@ -1320,6 +1343,7 @@ export function useDefaultData(){
           bookID:12,
           bookName:'Large Squared Notebook (02)',
           publication:'USS',
+          type:'copy',
           quantity:2,
           price:140
         }
@@ -1333,6 +1357,7 @@ export function useDefaultData(){
           bookID:1,
           bookName:'Progressive English Book-1 (2nd Edition)',
           publication:'OXFORD',
+          type:'book',
           quantity:1,
           price : 930
         },
@@ -1340,6 +1365,7 @@ export function useDefaultData(){
           bookID:2,
           bookName:'New Countdown Book-1 (3rd Edition)',
           publication:'OXFORD',
+          type:'book',
           quantity:1,
           price : 890
         },
@@ -1347,6 +1373,7 @@ export function useDefaultData(){
           bookID:3,
           bookName:'Science Factor Book-1',
           publication:'OXFORD',
+          type:'book',
           quantity:1,
           price : 400
         },
@@ -1354,6 +1381,7 @@ export function useDefaultData(){
           bookID:4,
           bookName:'Keyboard Computer Book-1 (3rd Edition)',
           publication:'OXFORD',
+          type:'book',
           quantity:1,
           price : 915 
         },
@@ -1361,6 +1389,7 @@ export function useDefaultData(){
           bookID:5,
           bookName:'Meri Duniya-1',
           publication:'OXFORD',
+          type:'book',
           quantity:1,
           price : 575
         },
@@ -1368,6 +1397,7 @@ export function useDefaultData(){
           bookID:6,
           bookName:'Art and Craft',
           publication:'OXFORD',
+          type:'book',
           quantity:1,
           price : 650
         },
@@ -1375,6 +1405,7 @@ export function useDefaultData(){
           bookID:7,
           bookName:'Islamiat Studies Book-1 (Urdu Medium)',
           publication:'PTB',
+          type:'book',
           quantity:1,
           price : 100
         },
@@ -1382,6 +1413,7 @@ export function useDefaultData(){
           bookID:8,
           bookName:'Urdu Book-1',
           publication:'PTB',
+          type:'book',
           quantity:1,
           price : 255
         },
@@ -1389,6 +1421,7 @@ export function useDefaultData(){
           bookID: 9,
           bookName: "Sketch-Book",
           publication: "USS",
+          type:'copy',
           quantity: 1,
           price: 500
         },
@@ -1396,6 +1429,7 @@ export function useDefaultData(){
           bookID: 10,
           bookName: "Homework Diary",
           publication: "USS",
+          type:'copy',
           quantity: 1,
           price: 320
         },
@@ -1403,6 +1437,7 @@ export function useDefaultData(){
           bookID: 11,
           bookName: "Four Lines English Copy (03)",
           publication: "USS",
+          type:'copy',
           quantity: 3,
           price: 140
         },
@@ -1410,6 +1445,7 @@ export function useDefaultData(){
           bookID: 12,
           bookName: "Small Squared Copy (02)",
           publication: "USS",
+          type:'copy',
           quantity: 2,
           price: 140
         },
@@ -1417,6 +1453,7 @@ export function useDefaultData(){
           bookID: 13,
           bookName: "Broad Line Urdu Copy (04)",
           publication: "USS",
+          type:'copy',
           quantity: 4,
           price: 140
         },
@@ -1424,6 +1461,7 @@ export function useDefaultData(){
           bookID: 14,
           bookName: "Four Lines Interleaf Copy (01)",
           publication: "USS",
+          type:'copy',
           quantity: 1,
           price: 140
         }
@@ -1437,6 +1475,7 @@ export function useDefaultData(){
           bookID:1,
           bookName:'Progressive English Book-2 (2nd Edition)',
           publication:'OUP',
+          type:'book',
           quantity:1,
           price : 970
         },
@@ -1444,6 +1483,7 @@ export function useDefaultData(){
           bookID:2,
           bookName:'New Countdown Book-2 (3rd Edition)',
           publication:'OUP',
+          type:'book',
           quantity:1,
           price : 905
         },
@@ -1451,6 +1491,7 @@ export function useDefaultData(){
           bookID:3,
           bookName:'Urdu Book-2 ',
           publication:'PTB',
+          type:'book',
           quantity:1,
           price : 250
         },
@@ -1458,6 +1499,7 @@ export function useDefaultData(){
           bookID:4,
           bookName:'Keyboard Computer Book-2 (3rd Edition)',
           publication:'OUP',
+          type:'book',
           quantity:1,
           price : 915 
         },
@@ -1465,6 +1507,7 @@ export function useDefaultData(){
           bookID:5,
           bookName:'Islamiat Studies Book-2 (Urdu Medium)',
           publication:'PTB',
+          type:'book',
           quantity:1,
           price : 120
         },
@@ -1472,6 +1515,7 @@ export function useDefaultData(){
           bookID:6,
           bookName:'Meri Duniya-2',
           publication:'OUP',
+          type:'book',
           quantity:1,
           price : 575
         },
@@ -1479,6 +1523,7 @@ export function useDefaultData(){
           bookID:7,
           bookName:'Art and Craft',
           publication:'OUP',
+          type:'book',
           quantity:1,
           price : 650
         },
@@ -1486,6 +1531,7 @@ export function useDefaultData(){
           bookID:8,
           bookName:'Science Factor Book-2 ',
           publication:'OUP',
+          type:'book',
           quantity:1,
           price : 400
         },
@@ -1493,6 +1539,7 @@ export function useDefaultData(){
           bookID:9,
           bookName:'Homework Diary ',
           publication:'USS',
+          type:'copy',
           quantity:1,
           price:320
         },
@@ -1500,6 +1547,7 @@ export function useDefaultData(){
           bookID:10,
           bookName:'Sketch-Book',
           publication:'USS',
+          type:'copy',
           quantity:1,
           price:500
         },
@@ -1507,6 +1555,7 @@ export function useDefaultData(){
           bookID:11,
           bookName:'Four Lines English Copy (03)',
           publication:'USS',
+          type:'copy',
           quantity:3,
           price:140
         },
@@ -1514,6 +1563,7 @@ export function useDefaultData(){
           bookID:12,
           bookName:'Small Squared Copy (02)',
           publication:'USS',
+          type:'copy',
           quantity:2,
           price:140
         },
@@ -1521,6 +1571,7 @@ export function useDefaultData(){
           bookID:13,
           bookName:'Broad Line Urdu Copy (04)',
           publication:'USS',
+          type:'copy',
           quantity:4,
           price:140
         },
@@ -1528,6 +1579,7 @@ export function useDefaultData(){
           bookID:14,
           bookName:'Four Lines Interleaf Copy (01)',
           publication:'USS',
+          type:'copy',
           quantity:1,
           price:140
         }
@@ -1541,6 +1593,7 @@ export function useDefaultData(){
           bookID:1,
           bookName:'Progressive English Book-3 (2nd Edition)',
           publication:'OUP',
+          type:'book',
           quantity:1,
           price : 985
         },
@@ -1548,6 +1601,7 @@ export function useDefaultData(){
           bookID:2,
           bookName:'New Countdown Book-3 (3rd Edition)',
           publication:'OUP',
+          type:'book',
           quantity:1,
           price : 960
         },
@@ -1555,6 +1609,7 @@ export function useDefaultData(){
           bookID:3,
           bookName:'Urdu Book-3',
           publication:'PTB',
+          type:'book',
           quantity:1,
           price : 260
         },
@@ -1562,6 +1617,7 @@ export function useDefaultData(){
           bookID:4,
           bookName:'Keyboard Computer Book-3 (3rd Edition)',
           publication:'OUP',
+          type:'book',
           quantity:1,
           price : 955
         },
@@ -1569,6 +1625,7 @@ export function useDefaultData(){
           bookID:5,
           bookName:'Islamiat Studies Book-3 (Urdu Medium)',
           publication:'PTB',
+          type:'book',
           quantity:1,
           price : 150
         },
@@ -1576,6 +1633,7 @@ export function useDefaultData(){
           bookID:6,
           bookName:'Meri Duniya-3',
           publication:'OUP',
+          type:'book',
           quantity:1,
           price : 575
         },
@@ -1583,6 +1641,7 @@ export function useDefaultData(){
           bookID:7,
           bookName:'Art and Craft',
           publication:'OUP',
+          type:'book',
           quantity:1,
           price : 650
         },
@@ -1590,6 +1649,7 @@ export function useDefaultData(){
           bookID:8,
           bookName:'Science Factor Book-3',
           publication:'OUP',
+          type:'book',
           quantity:1,
           price : 450
         },
@@ -1597,6 +1657,7 @@ export function useDefaultData(){
           bookID:9,
           bookName:'Homework Diary ',
           publication:'USS',
+          type:'copy',
           quantity:1,
           price:320
         },
@@ -1604,6 +1665,7 @@ export function useDefaultData(){
           bookID:10,
           bookName:'Sketch-Book',
           publication:'USS',
+          type:'copy',
           quantity:1,
           price:500
         },
@@ -1611,6 +1673,7 @@ export function useDefaultData(){
           bookID:11,
           bookName:'Four Lines English Copy (03)',
           publication:'USS',
+          type:'copy',
           quantity:3,
           price:140
         },
@@ -1618,6 +1681,7 @@ export function useDefaultData(){
           bookID:12,
           bookName:'Small Squared Copy (02)',
           publication:'USS',
+          type:'copy',
           quantity:2,
           price:140
         },
@@ -1625,6 +1689,7 @@ export function useDefaultData(){
           bookID:13,
           bookName:'Broad Line Urdu Copy (04)',
           publication:'USS',
+          type:'copy',
           quantity:4,
           price:140
         },
@@ -1632,6 +1697,7 @@ export function useDefaultData(){
           bookID:14,
           bookName:'Four Lines Interleaf Copy (01)',
           publication:'USS',
+          type:'copy',
           quantity:1,
           price:140
         }
@@ -1645,6 +1711,7 @@ export function useDefaultData(){
           bookID:1,
           bookName:'Progressive English Book-4 (2nd Edition) ',
           publication:'OUP',
+          type:'book',
           quantity:1,
           price : 995
         },
@@ -1652,6 +1719,7 @@ export function useDefaultData(){
           bookID:2,
           bookName:'New Countdown Book-4 (3rd Edition)',
           publication:'OUP',
+          type:'book',
           quantity:1,
           price : 960
         },
@@ -1659,6 +1727,7 @@ export function useDefaultData(){
           bookID:3,
           bookName:'Urdu Book-4',
           publication:'PTB',
+          type:'book',
           quantity:1,
           price : 270
         },
@@ -1666,6 +1735,7 @@ export function useDefaultData(){
           bookID:4,
           bookName:'Keyboard Computer Book-4 (3rd Edition)',
           publication:'OUP',
+          type:'book',
           quantity:1,
           price : 995
         },
@@ -1673,6 +1743,7 @@ export function useDefaultData(){
           bookID:5,
           bookName:'Islamiat Studies Book-4 (Urdu Medium)',
           publication:'PTB',
+          type:'book',
           quantity:1,
           price : 160
         },
@@ -1680,6 +1751,7 @@ export function useDefaultData(){
           bookID:6,
           bookName:'Pakistan aur Hamari Duniya',
           publication:'OUP',
+          type:'book',
           quantity:1,
           price : 695
         },
@@ -1687,6 +1759,7 @@ export function useDefaultData(){
           bookID:7,
           bookName:'Art and Craft',
           publication:'OUP',
+          type:'book',
           quantity:1,
           price : 680
         },
@@ -1694,6 +1767,7 @@ export function useDefaultData(){
           bookID:8,
           bookName:'Science Factor Book-4',
           publication:'OUP',
+          type:'book',
           quantity:1,
           price : 1075
         },
@@ -1701,6 +1775,7 @@ export function useDefaultData(){
           bookID:9,
           bookName:'Homework Diary ',
           publication:'USS',
+          type:'copy',
           quantity:1,
           price:320
         },
@@ -1708,6 +1783,7 @@ export function useDefaultData(){
           bookID:10,
           bookName:'Sketch-Book',
           publication:'USS',
+          type:'copy',
           quantity:1,
           price:500
         },
@@ -1715,6 +1791,7 @@ export function useDefaultData(){
           bookID:11,
           bookName:'Four Lines English Copy (03)',
           publication:'USS',
+          type:'copy',
           quantity:3,
           price:140
         },
@@ -1722,6 +1799,7 @@ export function useDefaultData(){
           bookID:12,
           bookName:'Small Squared Copy (02)',
           publication:'USS',
+          type:'copy',
           quantity:2,
           price:140
         },
@@ -1729,6 +1807,7 @@ export function useDefaultData(){
           bookID:13,
           bookName:'Broad Line Urdu Copy (04)',
           publication:'USS',
+          type:'copy',
           quantity:4,
           price:140
         },
@@ -1736,6 +1815,7 @@ export function useDefaultData(){
           bookID:14,
           bookName:'Four Lines Interleaf Copy (01)',
           publication:'USS',
+          type:'copy',
           quantity:1,
           price:140
         }
@@ -1749,6 +1829,7 @@ export function useDefaultData(){
           bookID:1,
           bookName:'Progressive English Book-5 (2nd Edition)',
           publication:'OUP',
+          type:'book',
           quantity:1,
           price : 1065
         },
@@ -1756,6 +1837,7 @@ export function useDefaultData(){
           bookID:2,
           bookName:'New Countdown Book-5 (3rd Edition) ',
           publication:'OUP',
+          type:'book',
           quantity:1,
           price : 960
         },
@@ -1763,6 +1845,7 @@ export function useDefaultData(){
           bookID:3,
           bookName:'Urdu Book-5',
           publication:'PTB',
+          type:'book',
           quantity:1,
           price : 300
         },
@@ -1770,6 +1853,7 @@ export function useDefaultData(){
           bookID:4,
           bookName:'Keyboard Computer Book-5 (3rd Edition)',
           publication:'OUP',
+          type:'book',
           quantity:1,
           price : 165
         },
@@ -1777,6 +1861,7 @@ export function useDefaultData(){
           bookID:5,
           bookName:'Islamiat Studies Book-5(Urdu Medium)',
           publication:'PTB',
+          type:'book',
           quantity:1,
           price : 220
         },
@@ -1784,6 +1869,7 @@ export function useDefaultData(){
           bookID:6,
           bookName:'Pakistan aur Hamari Duniya',
           publication:'OUP',
+          type:'book',
           quantity:1,
           price : 695
         },
@@ -1791,6 +1877,7 @@ export function useDefaultData(){
           bookID:7,
           bookName:'Art and Craft',
           publication:'OUP',
+          type:'book',
           quantity:1,
           price : 685
         },
@@ -1798,6 +1885,7 @@ export function useDefaultData(){
           bookID:8,
           bookName:'Science Factor Book-5 ',
           publication:'OUP',
+          type:'book',
           quantity:1,
           price : 1135
         },
@@ -1805,6 +1893,7 @@ export function useDefaultData(){
           bookID:9,
           bookName:'Homework Diary ',
           publication:'USS',
+          type:'copy',
           quantity:1,
           price:320
         },
@@ -1812,6 +1901,7 @@ export function useDefaultData(){
           bookID:10,
           bookName:'Sketch-Book',
           publication:'USS',
+          type:'copy',
           quantity:1,
           price:500
         },
@@ -1819,6 +1909,7 @@ export function useDefaultData(){
           bookID:11,
           bookName:'Four Lines English Copy (03)',
           publication:'USS',
+          type:'copy',
           quantity:3,
           price:140
         },
@@ -1826,6 +1917,7 @@ export function useDefaultData(){
           bookID:12,
           bookName:'Small Squared Copy (02)',
           publication:'USS',
+          type:'copy',
           quantity:2,
           price:140
         },
@@ -1833,6 +1925,7 @@ export function useDefaultData(){
           bookID:13,
           bookName:'Broad Line Urdu Copy (04)',
           publication:'USS',
+          type:'copy',
           quantity:4,
           price:140
         },
@@ -1840,6 +1933,7 @@ export function useDefaultData(){
           bookID:14,
           bookName:'Four Lines Interleaf Copy (01)',
           publication:'USS',
+          type:'copy',
           quantity:1,
           price:140
         }
@@ -1853,6 +1947,7 @@ export function useDefaultData(){
           bookID:1,
           bookName:'Urdu',
           publication:'PTB',
+          type:'book',
           quantity:1,
           price : null
         },
@@ -1860,6 +1955,7 @@ export function useDefaultData(){
           bookID:2,
           bookName:'Urdu Gramamr',
           publication:'JDB',
+          type:'book',
           quantity:1,
           price : null
         },
@@ -1867,6 +1963,7 @@ export function useDefaultData(){
           bookID:3,
           bookName:'English ',
           publication:'PTB',
+          type:'book',
           quantity:1,
           price : null
         },
@@ -1874,6 +1971,7 @@ export function useDefaultData(){
           bookID:4,
           bookName:'English Grammar',
           publication:'USS',
+          type:'book',
           quantity:1,
           price : null
         },
@@ -1881,6 +1979,7 @@ export function useDefaultData(){
           bookID:5,
           bookName:'General Science (English Medium)',
           publication:'PTB',
+          type:'book',
           quantity:1,
           price : null
         },
@@ -1888,6 +1987,7 @@ export function useDefaultData(){
           bookID:6,
           bookName:'Mathematics (English Medium)',
           publication:'PTB',
+          type:'book',
           quantity:1,
           price : null
         },
@@ -1895,6 +1995,7 @@ export function useDefaultData(){
           bookID:7,
           bookName:'Islamiat(Urdu Medium)',
           publication:'PTB',
+          type:'book',
           quantity:1,
           price : null
         },
@@ -1902,6 +2003,7 @@ export function useDefaultData(){
           bookID:8,
           bookName:'Geography (English Medium)',
           publication:'PTB',
+          type:'book',
           quantity:1,
           price : null
         },
@@ -1909,6 +2011,7 @@ export function useDefaultData(){
           bookID:9,
           bookName:'History (English Medium)',
           publication:'PTB',
+          type:'book',
           quantity:1,
           price : null
         },
@@ -1916,6 +2019,7 @@ export function useDefaultData(){
           bookID:10,
           bookName:'Art Book',
           publication:'PTB',
+          type:'book',
           quantity:1,
           price : null
         },
@@ -1923,6 +2027,7 @@ export function useDefaultData(){
           bookID:11,
           bookName:'Homework Diary ',
           publication:'USS',
+          type:'copy',
           quantity:1,
           price:320
         },
@@ -1930,6 +2035,7 @@ export function useDefaultData(){
           bookID:12,
           bookName:'Sketch-Book',
           publication:'USS',
+          type:'copy',
           quantity:1,
           price:500
         },
@@ -1937,6 +2043,7 @@ export function useDefaultData(){
           bookID:13,
           bookName:'Narrow Line Notebook (07) ',
           publication:'USS',
+          type:'copy',
           quantity:7,
           price:140
         },
@@ -1944,6 +2051,7 @@ export function useDefaultData(){
           bookID:14,
           bookName:'Broad Line Urdu Copy (03)',
           publication:'USS',
+          type:'copy',
           quantity:4,
           price:140
         },
@@ -1951,6 +2059,7 @@ export function useDefaultData(){
           bookID:15,
           bookName:'Four Lines Interleaf Copy (01)',
           publication:'USS',
+          type:'copy',
           quantity:1,
           price:140
         },
@@ -1958,6 +2067,7 @@ export function useDefaultData(){
           bookID:16,
           bookName:'Register (01)',
           publication:'USS',
+          type:'copy',
           quantity:1,
           price:500
         }
@@ -1971,6 +2081,7 @@ export function useDefaultData(){
           bookID:1,
           bookName:'Urdu',
           publication:'PTB',
+          type:'book',
           quantity:1,
           price : null
         },
@@ -1978,6 +2089,7 @@ export function useDefaultData(){
           bookID:2,
           bookName:'Urdu Gramamr',
           publication:'JDB',
+          type:'book',
           quantity:1,
           price : null
         },
@@ -1985,6 +2097,7 @@ export function useDefaultData(){
           bookID:3,
           bookName:'English',
           publication:'PTB',
+          type:'book',
           quantity:1,
           price : null
         },
@@ -1992,6 +2105,7 @@ export function useDefaultData(){
           bookID:4,
           bookName:'English Grammar',
           publication:'USS',
+          type:'book',
           quantity:1,
           price : null
         },
@@ -1999,6 +2113,7 @@ export function useDefaultData(){
           bookID:5,
           bookName:'General Science (English Medium)',
           publication:'PTB',
+          type:'book',
           quantity:1,
           price : null
         },
@@ -2006,6 +2121,7 @@ export function useDefaultData(){
           bookID:6,
           bookName:'Mathematics(English Medium)',
           publication:'PTB',
+          type:'book',
           quantity:1,
           price : null
         },
@@ -2013,6 +2129,7 @@ export function useDefaultData(){
           bookID:7,
           bookName:'Islamiat(Urdu Medium)',
           publication:'PTB',
+          type:'book',
           quantity:1,
           price : null
         },
@@ -2020,6 +2137,7 @@ export function useDefaultData(){
           bookID:8,
           bookName:'Geography(English Medium)',
           publication:'PTB',
+          type:'book',
           quantity:1,
           price : null
         },
@@ -2027,6 +2145,7 @@ export function useDefaultData(){
           bookID:9,
           bookName:'History(English Medium)',
           publication:'PTB',
+          type:'book',
           quantity:1,
           price : null
         },
@@ -2034,6 +2153,7 @@ export function useDefaultData(){
           bookID:10,
           bookName:'Art Book',
           publication:'PTB',
+          type:'book',
           quantity:1,
           price : null
         },
@@ -2041,6 +2161,7 @@ export function useDefaultData(){
           bookID:11,
           bookName:'Homework Diary ',
           publication:'USS',
+          type:'copy',
           quantity:1,
           price:320
         },
@@ -2048,6 +2169,7 @@ export function useDefaultData(){
           bookID:12,
           bookName:'Sketch-Book',
           publication:'USS',
+          type:'copy',
           quantity:1,
           price:500
         },
@@ -2055,6 +2177,7 @@ export function useDefaultData(){
           bookID:13,
           bookName:'Narrow Line Notebook (07)',
           publication:'USS',
+          type:'copy',
           quantity:7,
           price:140
         },
@@ -2062,6 +2185,7 @@ export function useDefaultData(){
           bookID:14,
           bookName:'Broad Line Urdu Copy (03)',
           publication:'USS',
+          type:'copy',
           quantity:3,
           price:140
         },
@@ -2069,6 +2193,7 @@ export function useDefaultData(){
           bookID:15,
           bookName:'Four Lines Interleaf Copy (01)',
           publication:'USS',
+          type:'copy',
           quantity:1,
           price:140
         },
@@ -2076,6 +2201,7 @@ export function useDefaultData(){
           bookID:16,
           bookName:'Register (01)',
           publication:'USS',
+          type:'copy',
           quantity:1,
           price:500
         }
@@ -2203,6 +2329,8 @@ export function useDefaultData(){
   ];
 
   saveGroupsDataToStorage();
+
+  console.log(groups);
 }
 
 //useDefaultData();

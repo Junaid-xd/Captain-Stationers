@@ -1,0 +1,336 @@
+body{
+  background-color: #e6d8d8;
+  padding: 0;
+  margin: 0;
+}
+
+input {
+  text-align: center;
+  font-weight: bold;
+  border: 1px solid black;
+}
+
+span{
+  color: green;
+}
+
+tbody tr:hover {
+  background-color: #fff;
+  user-select: none;
+}
+
+/* ================================================================ */
+/* ================================================================ */
+/* ============================ NAV BAR =========================== */
+/* ================================================================ */
+/* ================================================================ */
+
+.home-nav-bar{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 3px solid black;
+  background-color: #e6d8d8;
+  width: 100%;
+}
+
+.nav-name-sec{
+  font-size: 6vmax;
+  font-weight: bolder;
+  margin-bottom: 1vmax;
+  padding: 0;
+  padding-top: 10px;
+}
+
+
+/* ================================================================ */
+/* ================================================================ */
+/* ============================ NAV BAR =========================== */
+/* ================================================================ */
+/* ================================================================ */
+
+
+
+.sales-detail-div{
+  margin-top: 3vmax;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.sales-group-detail-div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column ;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+
+.above-table-div{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 98%;
+}
+
+
+.above-table-btn-div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sales-table-quantity-input{
+  width: 5vmax;
+}
+.sales-table-price-input{
+  width: 8vmax;
+}
+.sales-detail-table-head{
+  font-size: 1.5vmax;
+  background-color: #000000;
+  color: #fff;
+}
+.sales-detail-table-body{
+  background-color:#d8c0c0;
+  text-align: center;
+  font-size: 1.3vmax;
+}
+
+
+.sales-detail-table-name-section{
+  text-align: start;
+}
+
+.sales-detail-table{
+  width: 100%;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.total-price-div{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 3vmax;
+  padding-right: 3vmax;
+}
+
+
+
+
+.sales-group-name{
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  font-size: 3vmax;
+  padding-left: 3vmax;
+
+}
+
+
+/* .sales-group-name-and-print-div{
+  font-size: 3vmax;
+  margin-bottom: 2vmax;
+}
+
+.sales-group-name-and-print-div p{
+  padding: 0;
+  margin: 0;
+} */
+
+
+
+.sales-remove-btn{
+  background-color: black;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.sales-remove-btn:hover{
+  background-color: red;
+}
+
+
+.final-cal-div{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1vmax;
+  width:60%;
+  background-color: #d8c0c0;
+  border-radius: 20px;
+  padding: 1vmax;
+}
+
+
+.sales-discount-div,
+.sales-cash-div,
+.sales-balance-div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sales-discount-div p,
+.sales-cash-div p,
+.sales-balance-div p{
+  margin-right: 1vmax;
+  font-size: 1.5vmax;
+}
+
+.sales-discount-input,
+.sales-cash-input,
+.sales-balance-input{
+  width: 10vmax;
+}
+
+
+
+.sales-remove-book-btn,
+.sales-remove-copies-btn{
+  padding: 3px;
+  border: none;
+  color: white;
+  background-color: blue;
+  font-weight: bold;
+  cursor: pointer;
+}
+.sales-remove-book-btn{
+  margin-right: 2vmax;
+}
+
+/* .sales-remove-copies-btn{
+
+} */
+
+.sales-remove-book-btn:hover,
+.sales-remove-copies-btn:hover{
+
+  background-color: red;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width : 980px) {
+
+  /* ================================================================ */
+  /* ================================================================ */
+  /* ============================ NAV BAR =========================== */
+  /* ================================================================ */
+  /* ================================================================ */
+
+  .nav-name-sec{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5vmax;
+    width: 100%;
+    padding: 10px 3px;
+    padding-top: 20px;
+  }
+
+  /* ================================================================ */
+  /* ================================================================ */
+  /* ============================ NAV BAR =========================== */
+  /* ================================================================ */
+  /* ================================================================ */
+
+
+
+  input {
+    font-size: 11px;
+  }
+  
+  .sales-detail-table-head{
+    font-size: 10px;
+  }
+
+  .sales-detail-table-body{
+    font-size: 10px;
+  }
+
+
+  .sales-table-quantity-input{
+    width: 2vmax;
+    
+  }
+
+  .sales-table-price-input{
+    width: 5vmax;
+  }
+
+  .total-price-div{
+    font-size: 2.3vmax;
+    padding-right: 1vmax;
+    flex-direction: column;
+  }  
+  
+  
+  
+  .sales-group-name{
+    padding-left: 2vmax;
+    font-size: 3.5vmax;
+  }
+
+  .sales-remove-btn{
+    background-color: #ed1919;
+    color: #fff;
+    font-size: 11px;
+    padding: 2px 3px;
+  }
+
+  .final-cal-div{
+    margin-top: 1vmax;
+    font-size: 1vmax;
+    width:90%;
+  }
+
+  .sales-discount-input,
+  .sales-cash-input,
+  .sales-balance-input{
+    width: 5vmax;
+  }
+
+  .sales-remove-book-btn,
+  .sales-remove-copies-btn{
+    padding: 3px;
+    font-size: 11px;
+  }
+  .sales-remove-book-btn{
+    margin-right: 1vmax;
+  }
+
+
+  .sales-remove-book-btn:active,
+  .sales-remove-copies-btn:active{
+    background-color: red;
+  }
+
+
+  .above-table-btn-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1vmax;
+  }
+
+  .above-table-div{
+    width: 95%;
+  }
+}

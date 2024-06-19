@@ -25,7 +25,9 @@ function makeGroupsInteractive(){
   document.querySelectorAll('.group-wraper-div').forEach((group)=>{
     group.addEventListener('click', ()=>{
       const target = group.getAttribute('data-group-id');
-      alert(target);
+      localStorage.setItem('sale-groupID', JSON.stringify(target));
+      window.location.assign('./group-sales-detail.html');
+      
     });
   });
 

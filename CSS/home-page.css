@@ -62,6 +62,7 @@ body{
   border-radius: 100px;
   width: 20vmax;
   word-break:break-word;
+  user-select: none;
 }
 
 .group-wraper-div p{

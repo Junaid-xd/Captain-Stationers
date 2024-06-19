@@ -28,9 +28,11 @@ body{
   width: 30vmax;
 }
 .admin-name-sec{
-  padding: 5px;
+  padding: 18px;
   margin-bottom: 1vmax;
   font-size: 6vmax;
+  word-break: break-word;
+  
 }
 .admin-btn-sec{
   padding: 5px;
@@ -237,7 +239,8 @@ body{
 .newBook-form-name-div,
 .newBook-form-pub-div,
 .newBook-form-quantity-div,
-.newBook-form-price-div{
+.newBook-form-price-div,
+.newBook-form-type-div{
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -247,7 +250,8 @@ body{
 .newBook-form-name-div p,
 .newBook-form-pub-div p,
 .newBook-form-quantity-div p,
-.newBook-form-price-div p{
+.newBook-form-price-div p,
+.newBook-form-type-div p{
   margin-right: 1vmax;
 }
 
@@ -318,7 +322,7 @@ body{
   align-items: center;
   justify-content: space-evenly;
   padding: 1vmax;
-  margin-bottom: 2vmax;
+  margin-bottom: 0vmax;
 }
 .input-newBook-divs p{
   padding: 0;
@@ -332,6 +336,16 @@ body{
   width: 12vmax;
 }
 
+.newBook-details-form-type-div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2vmax;
+}
+.newBook-form-type-input{
+  margin-left: 1vmax;
+}
+
 .newBook-details-form-name-div,
 .newBook-details-form-quantity-div{
   margin-bottom: 2vmax;
@@ -343,6 +357,7 @@ body{
   justify-content: space-evenly;
   width: 95%;
 }
+
 .name-err-msg-div,
 .newBook-details-error-div,
 .final-newBook-error-div{
@@ -499,9 +514,10 @@ body{
     border-radius: 10px;
     font-size: 1.3vmax;
   }
+
   .admin-popup-table-head,
   .admin-newGroup-tempBooks-table-head{
-    font-size: 1.25vmax;
+    font-size: 1vmax;
   }
   .admin-home-popup-table-publisher{
     font-size: 11px;
@@ -515,7 +531,7 @@ body{
   }
   #admin-home-popup{
     font-size: 13px;
-    top: 15%;
+    top: 10%;
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
@@ -525,6 +541,7 @@ body{
     background-color:#ebe2e2;
     border: 1px solid #000000;
     box-shadow: 0 0 20px black;
+    position: fixed;
   }
 
 
@@ -544,7 +561,7 @@ body{
 
 
   #admin-home-addBook-popup{
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
