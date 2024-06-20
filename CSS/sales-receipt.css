@@ -1,0 +1,102 @@
+body{
+  background-color: #e6d8d8;
+  padding: 0;
+  margin: 0;
+}
+
+span{
+  color: green;
+}
+
+
+.receipt-nav-bar{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 3px solid black;
+  background-color: #e6d8d8;
+  width: 100%;
+}
+
+.receipt-nav-name-sec{
+  font-size: 6vmax;
+  font-weight: bolder;
+  margin-bottom: 1vmax;
+  padding: 0;
+  padding-top: 10px;
+}
+
+
+
+
+
+.receipt-detail-table{
+  width: 100%;
+}
+
+.receipt-detail-table-body{
+  background-color:#d8c0c0;
+  text-align: center;
+  font-size: 1.3vmax;
+}
+
+.receipt-detail-table-name-section{
+  text-align: start;
+}
+
+.receipt-detail-table-head{
+  background-color: #fff;
+  color: black;
+}
+
+.receipt-group-name-div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3vmax;
+  margin-bottom: 1vmax;
+}
+
+.receipt-wrapper-div{
+  margin: 1vmax;
+  border: 2px solid black;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.final-cal-div{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 1vmax;
+  background-color: #d8c0c0;
+  padding: 0vmax 2vmax;
+  margin: 1vmax;
+}
+
+.receipt-total-div,
+.receipt-discount-div,
+.receipt-cash-div,
+.receipt-balance-div{
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  font-size: 1.7vmax;
+}
+
+.receipt-total-output,
+.receipt-discount-output,
+.receipt-cash-output,
+.receipt-balance-output{
+  margin-left: 5px;
+}
+
+
+
+.final-price-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2vmax;
+  font-weight: bold;
+}

@@ -134,17 +134,6 @@ tbody tr:hover {
 }
 
 
-/* .sales-group-name-and-print-div{
-  font-size: 3vmax;
-  margin-bottom: 2vmax;
-}
-
-.sales-group-name-and-print-div p{
-  padding: 0;
-  margin: 0;
-} */
-
-
 
 .sales-remove-btn{
   background-color: black;
@@ -206,9 +195,6 @@ tbody tr:hover {
   margin-right: 2vmax;
 }
 
-/* .sales-remove-copies-btn{
-
-} */
 
 .sales-remove-book-btn:hover,
 .sales-remove-copies-btn:hover{
@@ -218,7 +204,28 @@ tbody tr:hover {
 }
 
 
+.sales-group-print-div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 10px;
+  margin-bottom: 1vmax;
 
+}
+
+.sales-print-btn{
+  background-color: green;
+  color: #fff;
+  font-size: 1.2vmax;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.1s ease;
+  padding: 4px;
+}
+
+.sales-print-btn:hover{
+  background-color: black;
+}
 
 
 

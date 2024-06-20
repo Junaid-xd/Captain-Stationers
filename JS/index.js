@@ -1,0 +1,1 @@
+window.location.assign('/HTML/home-page.html');

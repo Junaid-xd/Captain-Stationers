@@ -13,6 +13,8 @@ function renderMainContent(){
 
   makeRemoveBookButtonInteractive();
   makeRemoveCopyButtonInteractive();
+  makePrintButtonInteractive();
+  
 
   let Total = doTotal();
 
@@ -67,6 +69,7 @@ function renderMainContent(){
 
 
   renderTotal(Total);
+  
 }
 
 renderMainContent();
@@ -232,4 +235,23 @@ function makeRemoveCopyButtonInteractive(){
     
   });
 
+}
+
+
+function makePrintButtonInteractive(){
+  document.querySelector('.sales-print-btn').addEventListener('click', ()=>{
+
+
+    localStorage.setItem('receipt-group', JSON.stringify(group));
+
+    const extras = {
+      discount: document.querySelector('.sales-discount-input').value,
+      cash: document.querySelector('.sales-cash-input').value,
+      balance: document.querySelector('.sales-balance-input').value
+    }
+
+    localStorage.setItem('extras', JSON.stringify(extras));
+
+    window.location.assign('./sales-receipt.html');
+  });
 }
