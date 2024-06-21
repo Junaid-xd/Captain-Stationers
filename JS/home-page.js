@@ -14,6 +14,7 @@ function renderContent(){
   })
 
   makeGroupsInteractive();
+  makeAdminSettingsButtonInteractive();
 
 }
 
@@ -31,4 +32,10 @@ function makeGroupsInteractive(){
     });
   });
 
+}
+
+function makeAdminSettingsButtonInteractive(){
+  document.querySelector('.nav-admin-btn').addEventListener('click', ()=>{
+    window.location.assign('./admin-login.html');
+  });
 }

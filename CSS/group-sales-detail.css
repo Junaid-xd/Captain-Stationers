@@ -207,13 +207,14 @@ tbody tr:hover {
 .sales-group-print-div{
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   padding: 5px 10px;
   margin-bottom: 1vmax;
 
 }
 
-.sales-print-btn{
+.sales-print-btn,
+.sales-savePDF-btn{
   background-color: green;
   color: #fff;
   font-size: 1.2vmax;
@@ -223,7 +224,8 @@ tbody tr:hover {
   padding: 4px;
 }
 
-.sales-print-btn:hover{
+.sales-print-btn:hover,
+.sales-savePDF-btn:hover{
   background-color: black;
 }
 
@@ -339,5 +341,17 @@ tbody tr:hover {
 
   .above-table-div{
     width: 95%;
+  }
+
+  .sales-group-print-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 10px;
+    margin-bottom: 1vmax;
+  
+  }
+  .sales-savePDF-btn{
+    display: none;
   }
 }

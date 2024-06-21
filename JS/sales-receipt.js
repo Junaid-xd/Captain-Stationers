@@ -1,9 +1,9 @@
 
 const group = JSON.parse(localStorage.getItem('receipt-group'));
 const extras = JSON.parse(localStorage.getItem('extras'));
+const code = JSON.parse(localStorage.getItem('code'));
 
-// console.log(group);
-// console.log(extras);
+
 
 function renderMainContent(){
 
@@ -39,9 +39,18 @@ function renderMainContent(){
 
   doCalculation();
 
-  window.print();
+  if(code==1){
+    printRecipt();
+  }
+  else if(code==2){
+    saveAsPDF();
+  }
+  else{
+    alert("Error!!, Contact Developer");
+  }
 
   
+
 
 }
 
@@ -66,4 +75,63 @@ function doCalculation(){
 
   finalTotal.innerHTML  = `Received: <span>${parseInt(grossTotal)} \\- </span>` ;
 
+}
+
+
+function saveAsPDF(){
+
+  const now = new Date();
+  const day = now.getDate().toString().padStart(2, '0');
+  const month = (now.getMonth() + 1).toString().padStart(2, '0'); // Months are zero-based
+  const year = now.getFullYear();
+  const hours = now.getHours().toString().padStart(2, '0');
+  const minutes = now.getMinutes().toString().padStart(2, '0');
+
+
+  const fileName = `${group.groupName}_(${day}-${month}-${year}) (${hours}-${minutes}).pdf`;
+
+  
+
+  html2canvas(document.body).then(canvas => {
+    
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF('p', 'mm', 'a4');
+
+      const imgData = canvas.toDataURL('image/png');
+
+  
+      const imgWidth = 210; 
+      const pageHeight = 295; 
+      const imgHeight = canvas.height * imgWidth / canvas.width;
+      let heightLeft = imgHeight;
+
+      let position = 0;
+
+
+      doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+      heightLeft -= pageHeight;
+
+      while (heightLeft >= 0) {
+          position = heightLeft - imgHeight;
+          doc.addPage();
+          doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+          heightLeft -= pageHeight;
+      }
+
+      doc.save(fileName);
+
+
+      window.location.assign('./home-page.html');
+  });
+}
+
+
+
+function printRecipt(){
+  window.print();
+
+  setTimeout(() => {
+    window.location.assign('./home-page.html');
+  }, 3000);
+  
 }

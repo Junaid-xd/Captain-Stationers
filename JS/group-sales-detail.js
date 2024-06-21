@@ -14,6 +14,7 @@ function renderMainContent(){
   makeRemoveBookButtonInteractive();
   makeRemoveCopyButtonInteractive();
   makePrintButtonInteractive();
+  makeSavePDFButtonInteractive();
   
 
   let Total = doTotal();
@@ -252,6 +253,31 @@ function makePrintButtonInteractive(){
 
     localStorage.setItem('extras', JSON.stringify(extras));
 
+    localStorage.setItem('code', JSON.stringify("1"));
+
     window.location.assign('./sales-receipt.html');
+  });
+}
+
+
+function makeSavePDFButtonInteractive(){
+  document.querySelector('.sales-savePDF-btn').addEventListener('click', ()=>{
+
+
+    localStorage.setItem('receipt-group', JSON.stringify(group));
+
+    const extras = {
+      discount: document.querySelector('.sales-discount-input').value,
+      cash: document.querySelector('.sales-cash-input').value,
+      balance: document.querySelector('.sales-balance-input').value
+    }
+
+    localStorage.setItem('extras', JSON.stringify(extras));
+
+    localStorage.setItem('code', JSON.stringify("2"));
+
+    window.location.assign('./sales-receipt.html');
+
+
   });
 }
