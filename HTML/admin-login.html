@@ -9,10 +9,35 @@
 <body>
 
 
-  <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; margin-top: 10vmax;">
-    <p style="color: red; font-weight: bold;">This feature is still under development</p>
-    <a href="./home-page.html">back to home</a>
+  <div class="receipt-nav-bar">
+    <div class="receipt-nav-name-sec">CAPTAIN STATIONERS</div>
+  </div>
+
+  <div class="for-wrapper">
+    <div class="log-in-div">
+      <div class="id-div">
+        <p>ID :</p>
+        <input type="text" placeholder="enter your id" class="admin-id-input">
+      </div>
+      <div class="password-div">
+        <p>Password :</p>
+        <input type="password" placeholder="enter your password" class="admin-pass-input">
+      </div>
+  
+      <div class="error-div"></div>
+  
+      <div class="log-in-btn-div">
+        <button class="admin-login-btn">LOGIN</button>
+      </div>
+
+    </div>
+
+    <div class="back-to-home-div">
+      <a href="./home-page.html">Back to home</a>
+    </div>
   </div>
   
+
+  <script src="../JS/admin-login.js" type="module"></script>
 </body>
 </html>
