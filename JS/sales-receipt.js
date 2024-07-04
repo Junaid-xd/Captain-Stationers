@@ -130,8 +130,26 @@ function saveAsPDF(){
 function printRecipt(){
   window.print();
 
-  setTimeout(() => {
-    window.location.assign('./home-page.html');
-  }, 3000);
-  
+  window.onafterprint = redirectToHomePage;
 }
+
+function redirectToHomePage() {
+  window.location.assign('./home-page.html');
+}
+
+
+
+// function printReceipt() {
+//   window.print();
+
+//   // Define a function to redirect after printing
+//   function redirectToHomePage() {
+//     window.location.assign('./home-page.html');
+//   }
+
+//   // Assign the redirectToHomePage function to onafterprint event
+//   window.onafterprint = redirectToHomePage;
+
+//   // Fallback redirection after a timeout (e.g., 3 seconds)
+//   setTimeout(redirectToHomePage, 3000);
+// }
