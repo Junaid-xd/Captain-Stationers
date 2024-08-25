@@ -183,7 +183,8 @@ tbody tr:hover {
 
 
 .sales-remove-book-btn,
-.sales-remove-copies-btn{
+.sales-remove-copies-btn,
+.sales-refresh-btn{
   padding: 3px;
   border: none;
   color: white;
@@ -191,16 +192,17 @@ tbody tr:hover {
   font-weight: bold;
   cursor: pointer;
 }
-.sales-remove-book-btn{
+
+.sales-remove-book-btn,
+.sales-remove-copies-btn{
   margin-right: 2vmax;
 }
 
 
 .sales-remove-book-btn:hover,
-.sales-remove-copies-btn:hover{
-
+.sales-remove-copies-btn:hover,
+.sales-refresh-btn:hover{
   background-color: red;
-
 }
 
 
@@ -284,6 +286,14 @@ tbody tr:hover {
     width: 5vmax;
   }
 
+  .above-table-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  
+  }
+
   .total-price-div{
     font-size: 2.3vmax;
     padding-right: 1vmax;
@@ -294,7 +304,7 @@ tbody tr:hover {
   
   .sales-group-name{
     padding-left: 2vmax;
-    font-size: 3.5vmax;
+    font-size: 4vmax;
   }
 
   .sales-remove-btn{
@@ -317,26 +327,39 @@ tbody tr:hover {
   }
 
   .sales-remove-book-btn,
-  .sales-remove-copies-btn{
-    padding: 3px;
-    font-size: 11px;
-  }
-  .sales-remove-book-btn{
-    margin-right: 1vmax;
+  .sales-remove-copies-btn,
+  .sales-refresh-btn{
+    padding: 5px;
+    font-size: 10px;
+    margin: 0;
+    background-color:rgb(165, 78, 78);
+    color: white;
+    border-radius: 10px;
   }
 
 
   .sales-remove-book-btn:active,
-  .sales-remove-copies-btn:active{
-    background-color: red;
+  .sales-remove-copies-btn:active,
+  .sales-refresh-btn:active{
+    background-color: black;
+  }
+
+  .sales-remove-book-btn:hover,
+  .sales-remove-copies-btn:hover,
+  .sales-refresh-btn:hover{
+    background-color:black;
   }
 
 
   .above-table-btn-div{
-    display: flex;
+    display: flex;  
     align-items: center;
-    justify-content: center;
-    margin-bottom: 1vmax;
+    justify-content: space-between;
+    margin: 1vmax 0vmax;
+    width: 100%;
+    background-color:#d8c0c0;
+    padding: 8px 5px;
+    border-radius: 10px;
   }
 
   .above-table-div{

@@ -30,7 +30,7 @@ body{
 .admin-name-sec{
   padding: 18px;
   margin-bottom: 1vmax;
-  font-size: 6vmax;
+  font-size: 4vmax;
   word-break: break-word;
   
 }
@@ -495,7 +495,8 @@ body{
   .admin-name-sec{
     padding: 5px;
     margin-bottom: 1vmax;
-    font-size: 4vmax;
+    font-size: 1.7vmax;
+    font-weight: bold;
   }
   .group-wrapper{
     display: inline-block;
@@ -541,7 +542,6 @@ body{
     background-color:#ebe2e2;
     border: 1px solid #000000;
     box-shadow: 0 0 20px black;
-    position: fixed;
   }
 
 
@@ -549,14 +549,14 @@ body{
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 50%;
+    width: 60%;
     transform: translate(-50%, -50%);
     padding: 20px;
     border: 1px solid #d6cece;
     background-color:#e6dede;
     border: 1px solid #000000;
     box-shadow: 0 0 20px black;
-    font-size: 15px;
+    font-size: 14px;
   }
 
 
@@ -592,7 +592,6 @@ body{
     width: 90%;
     top: 10%;
     left: 50%;
-    /* transform: translate(-50%, -30%); */
     transform: translateX(-50%);
     border-radius: 1vmax;
   }

@@ -48,10 +48,6 @@ function renderMainContent(){
   else{
     alert("Error!!, Contact Developer");
   }
-
-  
-
-
 }
 
 renderMainContent();
@@ -64,17 +60,22 @@ function doCalculation(){
   let balance = document.querySelector('.receipt-balance-output');
   let finalTotal = document.querySelector('.receipt-Final-total');
 
+  
   discount.innerHTML = parseInt(extras.discount);
   cash.innerHTML = parseInt(extras.cash);
   balance.innerHTML = parseInt(extras.balance);
-
+  
   const grossTotal = parseInt(extras.cash - extras.balance);
-
+  
   
   total.innerHTML = grossTotal + parseInt(extras.discount);
-
+  
   finalTotal.innerHTML  = `Received: <span>${parseInt(grossTotal)} \\- </span>` ;
+  
+  let now = new Date();
+  let localizedDateTime = now.toLocaleString(); // e.g., "8/25/2024, 2:30:15 PM"
 
+  document.querySelector('.theDate').innerHTML = localizedDateTime ;
 }
 
 
@@ -87,8 +88,9 @@ function saveAsPDF(){
   const hours = now.getHours().toString().padStart(2, '0');
   const minutes = now.getMinutes().toString().padStart(2, '0');
 
+  const fileName = `${group.groupName} (${day}-${month}-${year}) (${hours}-${minutes}).pdf`;
 
-  const fileName = `${group.groupName}_(${day}-${month}-${year}) (${hours}-${minutes}).pdf`;
+
 
   
 
@@ -121,7 +123,6 @@ function saveAsPDF(){
       doc.save(fileName);
 
 
-      window.location.assign('./home-page.html');
   });
 }
 
@@ -129,6 +130,4 @@ function saveAsPDF(){
 
 function printRecipt(){
   window.print();
-
-
 }

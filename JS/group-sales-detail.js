@@ -3,16 +3,18 @@ import { groups, returnGroupByID } from "./group.js";
 const id = JSON.parse(localStorage.getItem('sale-groupID'));
 
 
-const group = returnGroupByID(id);
+let group = returnGroupByID(id);
 
 setFinalCalculationInputsToInitialState();
 
 
 
-function renderMainContent(){
 
+function renderMainContent(){
+  
   makeRemoveBookButtonInteractive();
   makeRemoveCopyButtonInteractive();
+  makeRefreshButtonInteractive();
   makePrintButtonInteractive();
   makeSavePDFButtonInteractive();
   
@@ -167,20 +169,38 @@ function setFinalCalculationInputsToInitialState(){
 
 function makeFinalCalculationFunctional(){
 
-  document.querySelector('.sales-discount-input').addEventListener('change',()=>{
-    renderMainContent();
-  });
+  // document.querySelector('.sales-discount-input').addEventListener('change',()=>{
+  //   renderMainContent();
+  // });
 
-  document.querySelector('.sales-discount-input').addEventListener('click',()=>{
-    document.querySelector('.sales-discount-input').value = "";
+  // document.querySelector('.sales-discount-input').addEventListener('click',()=>{
+  //   document.querySelector('.sales-discount-input').value = "";
+  // });
+  
+  // document.querySelector('.sales-cash-input').addEventListener('change',()=>{
+  //   renderMainContent();
+  // });
+
+  // document.querySelector('.sales-cash-input').addEventListener('click',()=>{
+  //   document.querySelector('.sales-cash-input').value = "";
+  // });
+
+
+  document.querySelector('.sales-discount-input').addEventListener('change', () => {
+    if (document.querySelector('.sales-discount-input').value == '' || document.querySelector('.sales-discount-input').value == null) {
+      document.querySelector('.sales-discount-input').value = 0;
+    }
+  
+    renderMainContent();
   });
   
-  document.querySelector('.sales-cash-input').addEventListener('change',()=>{
+  
+  document.querySelector('.sales-cash-input').addEventListener('change', () => {
+    if (document.querySelector('.sales-cash-input').value == '' || document.querySelector('.sales-cash-input').value == null) {
+      document.querySelector('.sales-cash-input').value = 0;
+    }
+  
     renderMainContent();
-  });
-
-  document.querySelector('.sales-cash-input').addEventListener('click',()=>{
-    document.querySelector('.sales-cash-input').value = "";
   });
 
 
@@ -281,3 +301,10 @@ function makeSavePDFButtonInteractive(){
 
   });
 }
+
+function makeRefreshButtonInteractive(){
+  document.querySelector('.sales-refresh-btn').addEventListener('click', ()=>{
+    location.reload();
+  })
+}
+

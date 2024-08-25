@@ -158,4 +158,9 @@ body{
   .group-wraper-div{
     width: 15vmax;
   }
+
+  .group-wraper-div p{
+    font-size: 1.7vmax;
+    font-weight: bold;
+  }
 }

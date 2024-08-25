@@ -1246,9 +1246,197 @@ function saveGroupsDataToStorage(){
 }
 
 export function useDefaultData(){
+
+  const copyRate = 140;
+  const diaryRate = 320;
+  const sketchBookRate = 500;
+  const bookBindingRate = 50;
+  const registerRate = 500;
+
+
   groups = [
     {
       groupID:1,
+      groupName:'NURSERY',
+      books:[
+        {
+          bookID:1,
+          bookName:'English Workbook',
+          publication:'USS',
+          type:'book',
+          quantity:1,
+          price : 540
+        },
+        {
+          bookID:2,
+          bookName:'Mathematics Workbook',
+          publication:'USS',
+          type:'book',
+          quantity:1,
+          price : 540
+        },
+        {
+          bookID:3,
+          bookName:'Urdu Workbook',
+          publication:'USS',
+          type:'book',
+          quantity:1,
+          price : 540
+        },
+        {
+          bookID:4,
+          bookName:'Fitzroy Reader (6-10)',
+          publication:'JDB',
+          type:'book',
+          quantity:1,
+          price : 770
+        },
+        {
+          bookID:5,
+          bookName:'World Around Me (Nursery) GK',
+          publication:'OUP',
+          type:'book',
+          quantity:1,
+          price : 625
+        },
+        {
+          bookID:6,
+          bookName:'Little Artist (Step-B)',
+          publication:'ARIES',
+          type:'book',
+          quantity:1,
+          price : 480
+        },
+        {
+          bookID:7,
+          bookName:'Pre-School Diary',
+          publication:'USS',
+          type:'copy',
+          quantity:1,
+          price:diaryRate
+        },
+        {
+          bookID:8,
+          bookName:'Sketch-Book',
+          publication:'USS',
+          type:'copy',
+          quantity:1,
+          price:sketchBookRate
+        },
+        {
+          bookID:9,
+          bookName:'4-Lines English Notebook (04)',
+          publication:'USS',
+          type:'copy',
+          quantity:4,
+          price:copyRate
+        },
+        {
+          bookID:10,
+          bookName:'Large Squared Notebook (02)',
+          publication:'USS',
+          type:'copy',
+          quantity:2,
+          price:copyRate
+        },
+        {
+          bookID:11,
+          bookName:'Book Binding',
+          publication:'Captain Stationers',
+          type:'book',
+          quantity:6,
+          price:bookBindingRate
+        }
+      ],
+    },
+    {
+      groupID:2,
+      groupName:'PLAYGROUP',
+      books:[
+        {
+          bookID:1,
+          bookName:'English Workbook',
+          publication:'USS',
+          type:'book',
+          quantity:1,
+          price : 520
+        },
+        {
+          bookID:2,
+          bookName:'Mathematics Workbook',
+          publication:'USS',
+          type:'book',
+          quantity:1,
+          price : 520
+        },
+        {
+          bookID:3,
+          bookName:'Urdu Workbook',
+          publication:'USS',
+          type:'book',
+          quantity:1,
+          price : 520
+        },
+        {
+          bookID:4,
+          bookName:'Fitzroy Reader (1-5)',
+          publication:'JDB',
+          type:'book',
+          quantity:1,
+          price : 770
+        },
+        {
+          bookID:5,
+          bookName:'World Around Me (Pre-Nursery)',
+          publication:'OUP',
+          type:'book',
+          quantity:1,
+          price : 615
+        },
+        {
+          bookID:6,
+          bookName:'Little Artist (Step-A)',
+          publication:'ARIES',
+          type:'book',
+          quantity:1,
+          price : 480
+        },
+        {
+          bookID:7,
+          bookName:'Pre-School Diary',
+          publication:'USS',
+          type:'copy',
+          quantity:1,
+          price:diaryRate
+        },
+        {
+          bookID:8,
+          bookName:'4-Lines English Notebook (04)',
+          publication:'USS',
+          type:'copy',
+          quantity:4,
+          price:copyRate
+        },
+        {
+          bookID:9,
+          bookName:'Large Squared Notebook (02)',
+          publication:'USS',
+          type:'copy',
+          quantity:2,
+          price:copyRate
+        },
+        {
+          bookID:10,
+          bookName:'Book Binding',
+          publication:'Captain Stationers',
+          type:'book',
+          quantity:6,
+          price:bookBindingRate
+        }
+      ],
+    },
+    {
+      groupID:3,
       groupName:'PREP',
       books:[
         {
@@ -1321,7 +1509,7 @@ export function useDefaultData(){
           publication:'USS',
           type:'copy',
           quantity:1,
-          price:320
+          price:diaryRate
         },
         {
           bookID:10,
@@ -1329,7 +1517,7 @@ export function useDefaultData(){
           publication:'USS',
           type:'copy',
           quantity:1,
-          price:500
+          price:sketchBookRate
         },
         {
           bookID:11,
@@ -1337,7 +1525,7 @@ export function useDefaultData(){
           publication:'USS',
           type:'copy',
           quantity:4,
-          price:140
+          price:copyRate
         },
         {
           bookID:12,
@@ -1345,12 +1533,20 @@ export function useDefaultData(){
           publication:'USS',
           type:'copy',
           quantity:2,
-          price:140
+          price:copyRate
+        },
+        {
+          bookID:13,
+          bookName:'Book Binding',
+          publication:'Captain Stationers',
+          type:'book',
+          quantity:8,
+          price:bookBindingRate
         }
       ],
     },
     {
-      groupID:2,
+      groupID:4,
       groupName:'ONE',
       books:[
         {
@@ -1423,7 +1619,7 @@ export function useDefaultData(){
           publication: "USS",
           type:'copy',
           quantity: 1,
-          price: 500
+          price: sketchBookRate
         },
         {
           bookID: 10,
@@ -1431,7 +1627,7 @@ export function useDefaultData(){
           publication: "USS",
           type:'copy',
           quantity: 1,
-          price: 320
+          price: diaryRate
         },
         {
           bookID: 11,
@@ -1439,7 +1635,7 @@ export function useDefaultData(){
           publication: "USS",
           type:'copy',
           quantity: 3,
-          price: 140
+          price: copyRate
         },
         {
           bookID: 12,
@@ -1447,7 +1643,7 @@ export function useDefaultData(){
           publication: "USS",
           type:'copy',
           quantity: 2,
-          price: 140
+          price: copyRate
         },
         {
           bookID: 13,
@@ -1455,7 +1651,7 @@ export function useDefaultData(){
           publication: "USS",
           type:'copy',
           quantity: 4,
-          price: 140
+          price: copyRate
         },
         {
           bookID: 14,
@@ -1463,12 +1659,20 @@ export function useDefaultData(){
           publication: "USS",
           type:'copy',
           quantity: 1,
-          price: 140
+          price: copyRate
+        },
+        {
+          bookID:15,
+          bookName:'Book Binding',
+          publication:'Captain Stationers',
+          type:'book',
+          quantity:9,
+          price:bookBindingRate
         }
       ]
     },
     {
-      groupID:3,
+      groupID:5,
       groupName:'TWO',
       books:[
         {
@@ -1541,7 +1745,7 @@ export function useDefaultData(){
           publication:'USS',
           type:'copy',
           quantity:1,
-          price:320
+          price:diaryRate
         },
         {
           bookID:10,
@@ -1549,7 +1753,7 @@ export function useDefaultData(){
           publication:'USS',
           type:'copy',
           quantity:1,
-          price:500
+          price:sketchBookRate
         },
         {
           bookID:11,
@@ -1557,7 +1761,7 @@ export function useDefaultData(){
           publication:'USS',
           type:'copy',
           quantity:3,
-          price:140
+          price:copyRate
         },
         {
           bookID:12,
@@ -1565,7 +1769,7 @@ export function useDefaultData(){
           publication:'USS',
           type:'copy',
           quantity:2,
-          price:140
+          price:copyRate
         },
         {
           bookID:13,
@@ -1573,7 +1777,7 @@ export function useDefaultData(){
           publication:'USS',
           type:'copy',
           quantity:4,
-          price:140
+          price:copyRate
         },
         {
           bookID:14,
@@ -1581,12 +1785,20 @@ export function useDefaultData(){
           publication:'USS',
           type:'copy',
           quantity:1,
-          price:140
+          price:copyRate
+        },
+        {
+          bookID:15,
+          bookName:'Book Binding',
+          publication:'Captain Stationers',
+          type:'book',
+          quantity:9,
+          price:bookBindingRate
         }
       ]
     },
     {
-      groupID:4,
+      groupID:6,
       groupName:'THREE',
       books:[
         {
@@ -1619,7 +1831,7 @@ export function useDefaultData(){
           publication:'OUP',
           type:'book',
           quantity:1,
-          price : 955
+          price : 995
         },
         {
           bookID:5,
@@ -1659,7 +1871,7 @@ export function useDefaultData(){
           publication:'USS',
           type:'copy',
           quantity:1,
-          price:320
+          price:diaryRate
         },
         {
           bookID:10,
@@ -1667,7 +1879,7 @@ export function useDefaultData(){
           publication:'USS',
           type:'copy',
           quantity:1,
-          price:500
+          price:sketchBookRate
         },
         {
           bookID:11,
@@ -1675,7 +1887,7 @@ export function useDefaultData(){
           publication:'USS',
           type:'copy',
           quantity:3,
-          price:140
+          price:copyRate
         },
         {
           bookID:12,
@@ -1683,7 +1895,7 @@ export function useDefaultData(){
           publication:'USS',
           type:'copy',
           quantity:2,
-          price:140
+          price:copyRate
         },
         {
           bookID:13,
@@ -1691,7 +1903,7 @@ export function useDefaultData(){
           publication:'USS',
           type:'copy',
           quantity:4,
-          price:140
+          price:copyRate
         },
         {
           bookID:14,
@@ -1699,12 +1911,20 @@ export function useDefaultData(){
           publication:'USS',
           type:'copy',
           quantity:1,
-          price:140
+          price:copyRate
+        },
+        {
+          bookID:15,
+          bookName:'Book Binding',
+          publication:'Captain Stationers',
+          type:'book',
+          quantity:9,
+          price:bookBindingRate
         }
       ]
     },
     {
-      groupID:5,
+      groupID:7,
       groupName:'FOUR',
       books:[
         {
@@ -1761,7 +1981,7 @@ export function useDefaultData(){
           publication:'OUP',
           type:'book',
           quantity:1,
-          price : 680
+          price : 685
         },
         {
           bookID:8,
@@ -1777,7 +1997,7 @@ export function useDefaultData(){
           publication:'USS',
           type:'copy',
           quantity:1,
-          price:320
+          price:diaryRate
         },
         {
           bookID:10,
@@ -1785,7 +2005,7 @@ export function useDefaultData(){
           publication:'USS',
           type:'copy',
           quantity:1,
-          price:500
+          price:sketchBookRate
         },
         {
           bookID:11,
@@ -1793,7 +2013,7 @@ export function useDefaultData(){
           publication:'USS',
           type:'copy',
           quantity:3,
-          price:140
+          price:copyRate
         },
         {
           bookID:12,
@@ -1801,7 +2021,7 @@ export function useDefaultData(){
           publication:'USS',
           type:'copy',
           quantity:2,
-          price:140
+          price:copyRate
         },
         {
           bookID:13,
@@ -1809,7 +2029,7 @@ export function useDefaultData(){
           publication:'USS',
           type:'copy',
           quantity:4,
-          price:140
+          price:copyRate
         },
         {
           bookID:14,
@@ -1817,12 +2037,20 @@ export function useDefaultData(){
           publication:'USS',
           type:'copy',
           quantity:1,
-          price:140
+          price:copyRate
+        },
+        {
+          bookID:15,
+          bookName:'Book Binding',
+          publication:'Captain Stationers',
+          type:'book',
+          quantity:9,
+          price:bookBindingRate
         }
       ]
     },
     {
-      groupID:6,
+      groupID:8,
       groupName:'FIVE',
       books:[
         {
@@ -1855,7 +2083,7 @@ export function useDefaultData(){
           publication:'OUP',
           type:'book',
           quantity:1,
-          price : 165
+          price : 1065
         },
         {
           bookID:5,
@@ -1895,7 +2123,7 @@ export function useDefaultData(){
           publication:'USS',
           type:'copy',
           quantity:1,
-          price:320
+          price:diaryRate
         },
         {
           bookID:10,
@@ -1903,7 +2131,7 @@ export function useDefaultData(){
           publication:'USS',
           type:'copy',
           quantity:1,
-          price:500
+          price:sketchBookRate
         },
         {
           bookID:11,
@@ -1911,7 +2139,7 @@ export function useDefaultData(){
           publication:'USS',
           type:'copy',
           quantity:3,
-          price:140
+          price:copyRate
         },
         {
           bookID:12,
@@ -1919,7 +2147,7 @@ export function useDefaultData(){
           publication:'USS',
           type:'copy',
           quantity:2,
-          price:140
+          price:copyRate
         },
         {
           bookID:13,
@@ -1927,20 +2155,36 @@ export function useDefaultData(){
           publication:'USS',
           type:'copy',
           quantity:4,
-          price:140
+          price:copyRate
         },
         {
           bookID:14,
-          bookName:'Four Lines Interleaf Copy (01)',
+          bookName:'Narrow Lines Interleaf Notebook (01)',
           publication:'USS',
           type:'copy',
           quantity:1,
-          price:140
+          price:copyRate
+        },
+        {
+          bookID:15,
+          bookName:'Narrow Lines Notebook (05)',
+          publication:'USS',
+          type:'copy',
+          quantity:5,
+          price:copyRate
+        },
+        {
+          bookID:16,
+          bookName:'Book Binding',
+          publication:'Captain Stationers',
+          type:'book',
+          quantity:9,
+          price:bookBindingRate
         }
       ]
     },
     {
-      groupID:7,
+      groupID:9,
       groupName:'SIX',
       books:[
         {
@@ -2029,7 +2273,7 @@ export function useDefaultData(){
           publication:'USS',
           type:'copy',
           quantity:1,
-          price:320
+          price:diaryRate
         },
         {
           bookID:12,
@@ -2037,7 +2281,7 @@ export function useDefaultData(){
           publication:'USS',
           type:'copy',
           quantity:1,
-          price:500
+          price:sketchBookRate
         },
         {
           bookID:13,
@@ -2045,23 +2289,23 @@ export function useDefaultData(){
           publication:'USS',
           type:'copy',
           quantity:7,
-          price:140
+          price:copyRate
         },
         {
           bookID:14,
           bookName:'Broad Line Urdu Copy (03)',
           publication:'USS',
           type:'copy',
-          quantity:4,
-          price:140
+          quantity:3,
+          price:copyRate
         },
         {
           bookID:15,
-          bookName:'Four Lines Interleaf Copy (01)',
+          bookName:'Narrow Lines Inter-Leaf Notebook (01)',
           publication:'USS',
           type:'copy',
           quantity:1,
-          price:140
+          price:copyRate
         },
         {
           bookID:16,
@@ -2069,12 +2313,20 @@ export function useDefaultData(){
           publication:'USS',
           type:'copy',
           quantity:1,
-          price:500
+          price:registerRate
+        },
+        {
+          bookID:17,
+          bookName:'Book Binding',
+          publication:'Captain Stationers',
+          type:'book',
+          quantity:null,
+          price:bookBindingRate
         }
       ]
     },
     {
-      groupID:8,
+      groupID:10,
       groupName:'SEVEN',
       books:[
         {
@@ -2163,7 +2415,7 @@ export function useDefaultData(){
           publication:'USS',
           type:'copy',
           quantity:1,
-          price:320
+          price:diaryRate
         },
         {
           bookID:12,
@@ -2171,7 +2423,7 @@ export function useDefaultData(){
           publication:'USS',
           type:'copy',
           quantity:1,
-          price:500
+          price:sketchBookRate
         },
         {
           bookID:13,
@@ -2179,7 +2431,7 @@ export function useDefaultData(){
           publication:'USS',
           type:'copy',
           quantity:7,
-          price:140
+          price:copyRate
         },
         {
           bookID:14,
@@ -2187,15 +2439,15 @@ export function useDefaultData(){
           publication:'USS',
           type:'copy',
           quantity:3,
-          price:140
+          price:copyRate
         },
         {
           bookID:15,
-          bookName:'Four Lines Interleaf Copy (01)',
+          bookName:'Narrow Lines Inter-Leaf Notebook (01)',
           publication:'USS',
           type:'copy',
           quantity:1,
-          price:140
+          price:copyRate
         },
         {
           bookID:16,
@@ -2203,137 +2455,165 @@ export function useDefaultData(){
           publication:'USS',
           type:'copy',
           quantity:1,
-          price:500
+          price:registerRate
+        },
+        {
+          bookID:17,
+          bookName:'Book Binding',
+          publication:'CS',
+          type:'book',
+          quantity:null,
+          price:bookBindingRate
         }
       ]
     },
-    // {
-    //   groupID:9,
-    //   groupName:'EIGHT',
-    //   books:[
-    //     {
-    //       bookID:1,
-    //       bookName:'Urdu',
-    //       publication:'PTB',
-    //       quantity:1,
-    //       price : null
-    //     },
-    //     {
-    //       bookID:2,
-    //       bookName:'Urdu Gramamr',
-    //       publication:'JDB',
-    //       quantity:1,
-    //       price : null
-    //     },
-    //     {
-    //       bookID:3,
-    //       bookName:'English',
-    //       publication:'PTB',
-    //       quantity:1,
-    //       price : null
-    //     },
-    //     {
-    //       bookID:4,
-    //       bookName:'English Grammar',
-    //       publication:'USS',
-    //       quantity:1,
-    //       price : null
-    //     },
-    //     {
-    //       bookID:5,
-    //       bookName:'General Science (English Medium)',
-    //       publication:'PTB',
-    //       quantity:1,
-    //       price : null
-    //     },
-    //     {
-    //       bookID:6,
-    //       bookName:'Mathematics(English Medium)',
-    //       publication:'PTB',
-    //       quantity:1,
-    //       price : null
-    //     },
-    //     {
-    //       bookID:7,
-    //       bookName:'Islamiat(Urdu Medium)',
-    //       publication:'PTB',
-    //       quantity:1,
-    //       price : null
-    //     },
-    //     {
-    //       bookID:8,
-    //       bookName:'Geography(English Medium)',
-    //       publication:'PTB',
-    //       quantity:1,
-    //       price : null
-    //     },
-    //     {
-    //       bookID:9,
-    //       bookName:'History(English Medium)',
-    //       publication:'PTB',
-    //       quantity:1,
-    //       price : null
-    //     },
-    //     {
-    //       bookID:10,
-    //       bookName:'Art Book',
-    //       publication:'PTB',
-    //       quantity:1,
-    //       price : null
-    //     },
-    //     {
-    //       bookID:11,
-    //       bookName:'Homework Diary ',
-    //       publication:'USS',
-    //       quantity:1,
-    //       price:320
-    //     },
-    //     {
-    //       bookID:12,
-    //       bookName:'Sketch-Book',
-    //       publication:'USS',
-    //       quantity:1,
-    //       price:500
-    //     },
-    //     {
-    //       bookID:13,
-    //       bookName:'Narrow Line Notebook (07)',
-    //       publication:'USS',
-    //       quantity:7,
-    //       price:140
-    //     },
-    //     {
-    //       bookID:14,
-    //       bookName:'Broad Line Urdu Copy (03)',
-    //       publication:'USS',
-    //       quantity:3,
-    //       price:140
-    //     },
-    //     {
-    //       bookID:15,
-    //       bookName:'Four Lines Interleaf Copy (01)',
-    //       publication:'USS',
-    //       quantity:1,
-    //       price:140
-    //     },
-    //     {
-    //       bookID:16,
-    //       bookName:'Register (01)',
-    //       publication:'USS',
-    //       quantity:1,
-    //       price:500
-    //     }
-    //   ]
-    // }
-    
+    {
+      groupID:11,
+      groupName:'EIGHT',
+      books:[
+        {
+          bookID:1,
+          bookName:'Urdu',
+          publication:'PTB',
+          type:'book',
+          quantity:1,
+          price : null
+        },
+        {
+          bookID:2,
+          bookName:' Urdu Grammar',
+          publication:'PTB',
+          type:'book',
+          quantity:1,
+          price : null
+        },
+        {
+          bookID:3,
+          bookName:'English',
+          publication:'PTB',
+          type:'book',
+          quantity:1,
+          price : null
+        },
+        {
+          bookID:4,
+          bookName:'English Grammar and Composition (9th-10th)',
+          publication:'PTB',
+          type:'book',
+          quantity:1,
+          price : null
+        },
+        {
+          bookID:5,
+          bookName:'General Science (English Medium)',
+          publication:'PTB',
+          type:'book',
+          quantity:1,
+          price : null
+        },
+        {
+          bookID:6,
+          bookName:'Mathematics(English Medium)',
+          publication:'PTB',
+          type:'book',
+          quantity:1,
+          price : null
+        },
+        {
+          bookID:7,
+          bookName:'Islamiat(Urdu Medium)',
+          publication:'PTB',
+          type:'book',
+          quantity:1,
+          price : null
+        },
+        {
+          bookID:8,
+          bookName:'Geography(English Medium)',
+          publication:'PTB',
+          type:'book',
+          quantity:1,
+          price : null
+        },
+        {
+          bookID:9,
+          bookName:'History(English Medium)',
+          publication:'PTB',
+          type:'book',
+          quantity:1,
+          price : null
+        },
+        {
+          bookID:10,
+          bookName:'Art Book',
+          publication:'PTB',
+          type:'book',
+          quantity:1,
+          price : null
+        },
+        {
+          bookID:11,
+          bookName:'Homework Diary ',
+          publication:'USS',
+          type:'copy',
+          quantity:1,
+          price:diaryRate
+        },
+        {
+          bookID:12,
+          bookName:'Sketch-Book',
+          publication:'USS',
+          type:'copy',
+          quantity:1,
+          price:sketchBookRate
+        },
+        {
+          bookID:13,
+          bookName:'Narrow Line Notebook (07)',
+          publication:'USS',
+          type:'copy',
+          quantity:7,
+          price:copyRate
+        },
+        {
+          bookID:14,
+          bookName:'Broad Line Urdu Copy (03)',
+          publication:'USS',
+          type:'copy',
+          quantity:3,
+          price:copyRate
+        },
+        {
+          bookID:15,
+          bookName:'Narrow Lines Inter-Leaf Notebook (01) ',
+          publication:'USS',
+          type:'copy',
+          quantity:1,
+          price:copyRate
+        },
+        {
+          bookID:16,
+          bookName:'Register (01)',
+          publication:'USS',
+          type:'copy',
+          quantity:1,
+          price:registerRate
+        },
+        {
+          bookID:17,
+          bookName:'Book Binding',
+          publication:'CS',
+          type:'book',
+          quantity:null,
+          price:bookBindingRate
+        }
+      ]
+    }
   ];
 
   saveGroupsDataToStorage();
 
-  console.log(groups);
 }
-
-//useDefaultData();
 
 
 
